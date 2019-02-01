@@ -4,7 +4,9 @@ permalink: /handbook/introduction
 
 # 소개
 
-Stimulus is a JavaScript framework with _modest_ ambitions. Unlike other frameworks, Stimulus doesn't take over your application's entire front-end. Rather, it's designed to augment your HTML by connecting elements to JavaScript objects automatically.
+<!-- Stimulus is a JavaScript framework with _modest_ ambitions. Unlike other frameworks, Stimulus doesn't take over your application's entire front-end. Rather, it's designed to augment your HTML by connecting elements to JavaScript objects automatically. -->
+
+Stimulus는 _겸손한_ 야망을 가진 JavaScript 프레임워크입니다. 여타 다른 프레임워크들과 다르게, Stimulus는 애플리케이션의 프론트엔드의 전체를 뒤덮지 않습니다. 엘리먼트를 JavaScript 객체에 자동으로 연결하여 HTML을 보완하도록 설계되었습니다.
 
 ## HTML에 JavaScript 연결하기
 
