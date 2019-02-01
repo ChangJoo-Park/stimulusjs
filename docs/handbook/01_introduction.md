@@ -10,11 +10,17 @@ Stimulus는 _겸손한_ 야망을 가진 JavaScript 프레임워크입니다. �
 
 ## HTML에 JavaScript 연결하기
 
-Stimulus works by continuously monitoring the page, waiting for the magic `data-controller` attribute to appear. Like the `class` attribute, you can put more than one value inside it. But instead of applying or removing CSS class names, `data-controller` values connect and disconnect Stimulus _controllers_.
+<!-- Stimulus works by continuously monitoring the page, waiting for the magic `data-controller` attribute to appear. Like the `class` attribute, you can put more than one value inside it. But instead of applying or removing CSS class names, `data-controller` values connect and disconnect Stimulus _controllers_. -->
 
-Think of it like this: in the same way that `class` is a bridge connecting HTML to CSS, `data-controller` is a bridge from HTML to JavaScript.
+Stimulus는 마법의 `data-controller` 속성이 나타날 때 까지 지속적으로 페이지를 감시합니다. `class` 속성처럼 하나 이상의 값을 넣을 수도 있습니다. 하지만 CSS 클래스를 적용하거나 제거하는 것과 달리 `data-controller` 의 값은 Stimululs _컨트롤러_ 안에서 연결(connect)하거나 제거(disconnect)합니다.
 
-On top of this foundation, Stimulus adds the magic `data-action` attribute, which describes how events on the page should trigger controller methods, and the magic `data-target` attribute, which gives you a handle for finding elements in the controller's scope.
+<!-- Think of it like this: in the same way that `class` is a bridge connecting HTML to CSS, `data-controller` is a bridge from HTML to JavaScript. -->
+
+이렇게 생각하세요: `class`는 HTML을 CSS에 연결하는 다리이며,`data-controller`는 HTML를 JavaScript에 연결하는 다리입니다.
+
+<!-- On top of this foundation, Stimulus adds the magic `data-action` attribute, which describes how events on the page should trigger controller methods, and the magic `data-target` attribute, which gives you a handle for finding elements in the controller's scope. -->
+
+위의 기본 원리 위에서, Stimulus는 페이지의 이벤트가 컨트롤러 메소드를 실행하는 또 하나의 마법인 `data-action` 을 가지고 있습니다. 그리고 컨트롤러의 엘리먼트를 찾기 위한 방법인 `data-target`도 있습니다.
 
 ## 관심사의 분리
 
