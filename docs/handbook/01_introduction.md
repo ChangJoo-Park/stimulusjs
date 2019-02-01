@@ -34,10 +34,14 @@ Stimulus의 속성들을 이용하면 CSS가 컨텐츠와 스타일을 분리하
 
 ## 읽을 수 있는 문서
 
-When your JavaScript behavior is mapped out in magic attributes, you can _read_ a fragment of HTML and know what's going on. That's a welcome relief when you return to a template six months later and don't recall exactly how things fit together.
+<!-- When your JavaScript behavior is mapped out in magic attributes, you can _read_ a fragment of HTML and know what's going on. That's a welcome relief when you return to a template six months later and don't recall exactly how things fit together. -->
 
-Readable markup also means that others on your team can easily look at templates—or even the developer console on a production page—to quickly trace behavior or diagnose an issue.
+당신의 JavaScript가 Stimulus의 속성들과 매핑되면 HTML 조각만 읽어도 무슨일이 일어나는지 알 수 있습니다. 6개월이나 지나 잘 기억나지 않더라도 안심할 수 있습니다.
 
-## 따뜻한 물의 온기 The Water's Warm
+<!-- Readable markup also means that others on your team can easily look at templates—or even the developer console on a production page—to quickly trace behavior or diagnose an issue. -->
+
+읽기 좋은 마크업은 다른 팀원이 템플릿 또는 운영중인 페이지의 개발자 콘솔에서 쉽게 동작을 추적하거나 문제를 진단할 수 있음을 의미합니다.
+
+## 따뜻한 물의 온기를 느껴보세요
 
 Now's a great time to dip your toes in and discover how Stimulus works. Keep reading to learn how to build your first controller.
