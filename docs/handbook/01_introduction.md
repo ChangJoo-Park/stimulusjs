@@ -24,9 +24,13 @@ Stimulus는 마법의 `data-controller` 속성이 나타날 때 까지 지속적
 
 ## 관심사의 분리
 
-Stimulus' magic attributes let you cleanly separate content from behavior in the same way you already separate content from presentation with CSS. Plus, Stimulus' conventions naturally encourage you to group related code by name.
+<!-- Stimulus' magic attributes let you cleanly separate content from behavior in the same way you already separate content from presentation with CSS. Plus, Stimulus' conventions naturally encourage you to group related code by name. -->
 
-This arrangement helps you build reusable, trait-like controllers, giving you just enough structure to keep your code from devolving into "JavaScript soup."
+Stimulus의 속성들을 이용하면 CSS가 컨텐츠와 스타일을 분리하는 것처럼 컨텐츠와 동작들을 구분할 수 있습니다. Stimulus의 관례에 따라 관련한 코드를 그룹화하는 것이 좋습니다.
+
+<!-- This arrangement helps you build reusable, trait-like controllers, giving you just enough structure to keep your code from devolving into "JavaScript soup." -->
+
+이는 재활용할 수 있는 컨트롤러를 만들어 "엉망진창인 JavaScript"가 되지 않도록 하는데 충분한 구조를 제공합니다.
 
 ## 읽을 수 있는 문서
 
