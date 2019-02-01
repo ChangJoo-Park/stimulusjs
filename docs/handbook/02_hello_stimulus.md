@@ -4,17 +4,27 @@ permalink: /handbook/hello-stimulus
 
 # 안녕하세요, Stimulus
 
-The best way to learn how Stimulus works is to build a simple controller. This chapter will show you how.
+<!-- The best way to learn how Stimulus works is to build a simple controller. This chapter will show you how. -->
+
+Stimulus를 배우려면 가장 단순한 컨트롤러를 만드는 것이 가장 좋습니다. 이 장에서는 어떻게 만드는지 알아봅니다.
 
 ## 사전 준비
 
-To follow along, you'll need a running copy of the [`stimulus-starter`](https://github.com/stimulusjs/stimulus-starter) project, which is a preconfigured blank slate for exploring Stimulus.
+<!-- To follow along, you'll need a running copy of the [`stimulus-starter`](https://github.com/stimulusjs/stimulus-starter) project, which is a preconfigured blank slate for exploring Stimulus.  -->
 
-We recommend [remixing `stimulus-starter` on Glitch](https://glitch.com/edit/#!/import/github/stimulusjs/stimulus-starter) so you can work entirely in your browser without installing anything:
+따라하려면, [`stimulus-starter`](https://github.com/stimulusjs/stimulus-starter) 프로젝트를 복사해야합니다. 이 프로젝트에는 Stimulus를 알아보기위한 기본 설정들이 있습니다.
+
+
+<!-- We recommend [remixing `stimulus-starter` on Glitch](https://glitch.com/edit/#!/import/github/stimulusjs/stimulus-starter) so you can work entirely in your browser without installing anything: -->
+
+우리는 [remixing `stimulus-starter` on Glitch](https://glitch.com/edit/#!/import/github/stimulusjs/stimulus-starter) 를 이용하는 것을 추천합니다. 아무것도 설치하지 않아도 브라우저에서 실행해볼 수 있습니다.
+
 
 [![Remix on Glitch](https://cdn.glitch.com/2703baf2-b643-4da7-ab91-7ee2a2d00b5b%2Fremix-button.svg)](https://glitch.com/edit/#!/import/github/stimulusjs/stimulus-starter)
 
-Or, if you'd prefer to work from the comfort of your own text editor, you'll need to clone and set up `stimulus-starter`:
+<!-- Or, if you'd prefer to work from the comfort of your own text editor, you'll need to clone and set up `stimulus-starter`: -->
+
+사용하는데 익숙한 텍스트 편집기를 이용하려면 간단히 `stimulus-starter`를 클론하세요.
 
 ```
 $ git clone https://github.com/stimulusjs/stimulus-starter.git
@@ -23,9 +33,13 @@ $ yarn install
 $ yarn start
 ```
 
-Then visit http://localhost:9000/ in your browser.
+<!-- Then visit http://localhost:9000/ in your browser. -->
 
-(Note that the `stimulus-starter` project uses the [Yarn package manager](https://yarnpkg.com/) for dependency management, so make sure you have that installed first.)
+이제 브라우저에서 http://localhost:9000/ 를 접속해보세요.
+
+<!-- (Note that the `stimulus-starter` project uses the [Yarn package manager](https://yarnpkg.com/) for dependency management, so make sure you have that installed first.) -->
+
+(`stimulus-starter` 프로젝트는 [Yarn package manager](https://yarnpkg.com/) 를 이용해 의존성을 관리합니다. 프로젝트를 진행하기 전에 미리 설치해두세요.)
 
 ## 모든 시작은 HTML로부터
 
