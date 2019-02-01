@@ -2,7 +2,7 @@
 permalink: /handbook/installing
 ---
 
-# Installing Stimulus in Your Application
+# 당신의 애플리케이션에 Stimulus 설치하기
 {:.no_toc}
 
 To install Stimulus in your application, add the [`stimulus` npm package](https://www.npmjs.com/package/stimulus) to your JavaScript bundle. Or, load [`stimulus.umd.js`](https://unpkg.com/stimulus/dist/stimulus.umd.js) in a `<script>` tag.
@@ -10,7 +10,7 @@ To install Stimulus in your application, add the [`stimulus` npm package](https:
 * TOC
 {:toc}
 
-## Using webpack
+## 웹팩 사용하기
 
 Stimulus integrates with the [webpack](https://webpack.js.org/) asset packager to automatically load controller files from a folder in your app.
 
@@ -26,7 +26,7 @@ const context = require.context("./controllers", true, /\.js$/)
 application.load(definitionsFromContext(context))
 ```
 
-### Controller Filenames Map to Identifiers
+### 컨트롤러 파일이름을 식별자에 매핑하기
 
 Name your controller files `[identifier]_controller.js`, where `identifier` corresponds to each controller's `data-controller` identifier in your HTML.
 
@@ -43,7 +43,7 @@ date_picker_controller.js         | date-picker
 users/list_item_controller.js     | users\-\-list-item
 local-time-controller.js          | local-time
 
-## Using Other Build Systems
+## 다른 빌드 시스템 사용하기
 
 Stimulus works with other build systems, too, but without support for controller autoloading. Instead, you must explicitly load and register controller files with your application instance:
 
@@ -59,7 +59,7 @@ application.register("hello", HelloController)
 application.register("clipboard", ClipboardController)
 ```
 
-## Using Babel
+## 바벨 사용하기
 
 If you're using [Babel](https://babeljs.io/) with your build system, you'll need to install the [@babel/plugin-proposal-class-properties](https://babeljs.io/docs/en/babel-plugin-proposal-class-properties) and add it to your configuration:
 
@@ -71,7 +71,7 @@ If you're using [Babel](https://babeljs.io/) with your build system, you'll need
 }
 ```
 
-## Using Without a Build System
+## 빌드시스템 없이 사용하기
 
 If you prefer not to use a build system, you can load Stimulus in a `<script>` tag and it will be globally available through the `window.Stimulus` object.
 
@@ -106,7 +106,7 @@ Define targets using `static get targets()` methods instead of `static targets =
 </html>
 ```
 
-## Browser Support
+## 브라우저 지원
 
 Stimulus supports all evergreen, self-updating desktop and mobile browsers out of the box.
 

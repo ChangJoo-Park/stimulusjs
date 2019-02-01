@@ -2,11 +2,11 @@
 permalink: /handbook/building-something-real
 ---
 
-# Building Something Real
+# 실제 작동하는 무언가를 만들어봅시다.
 
 We've implemented our first controller and learned how Stimulus connects HTML to JavaScript. Now let's take a look at something we can use in a real application by recreating a controller from Basecamp.
 
-## Wrapping the DOM Clipboard API
+## DOM 클립보드 API 감싸기
 
 Scattered throughout Basecamp's UI are buttons like these:
 
@@ -16,7 +16,7 @@ When you click one of these buttons, Basecamp copies a bit of text, such as a UR
 
 The web platform has [an API for accessing the system clipboard](https://www.w3.org/TR/clipboard-apis/), but there's no HTML element that does what we need. To implement the Copy button, we must use JavaScript.
 
-## Implementing a Copy Button
+## 복사 버튼 만들기
 
 Let's say we have an app which allows us to grant someone else access by generating a PIN for them. It would be convenient if we could display that generated PIN alongside a button to copy it to the clipboard for easy sharing.
 
@@ -29,7 +29,7 @@ Open `public/index.html` and replace the contents of `<body>` with a rough sketc
 </div>
 ```
 
-## Setting Up the Controller
+## 컨트롤러 만들기
 
 Next, create `src/controllers/clipboard_controller.js` and add an empty method `copy()`:
 
@@ -49,7 +49,7 @@ Then add `data-controller="clipboard"` to the outer `<div>`. Any time this attri
 <div data-controller="clipboard">
 ```
 
-## Defining the Target
+## 타겟을 정하는 방법
 
 We'll need a reference to the text field so we can select its contents before invoking the clipboard API. Add `data-target="clipboard.source"` to the text field:
 
@@ -76,7 +76,7 @@ export default class extends Controller {
 > * `this.hasSourceTarget` evaluates to `true` if there is a `source` target or `false` if not.
 
 
-## Connecting the Action
+## 액션과 연결하기
 
 Now we're ready to hook up the Copy button.
 
@@ -113,7 +113,7 @@ Finally, in our `copy()` method, we can select the input field's contents and ca
 
 Load the page in your browser and click the Copy button. Then switch back to your text editor and paste. You should see the PIN `1234`.
 
-## Designing a Resilient User Interface
+## 유연한 사용자 인터페이스 설계하기
 
 Although the clipboard API is [well-supported in current browsers](https://caniuse.com/#feat=clipboard), we might still expect to have a small number of people with older browsers using our application.
 
@@ -123,7 +123,7 @@ It's tempting to write off support for older browsers as not worth the effort, o
 
 This resilient approach, commonly known as _progressive enhancement_, is the practice of delivering web interfaces such that the basic functionality is implemented in HTML and CSS, and tiered upgrades to that base experience are layered on top with CSS and JavaScript, progressively, when their underlying technologies are supported by the browser.
 
-## Progressively Enhancing the PIN Field
+## 점진적으로 PIN 필드 개선하기
 
 Let's look at how we can progressively enhance our PIN field so that the Copy button is invisible unless it's supported by the browser. That way we can avoid showing someone a button that doesn't work.
 
@@ -161,7 +161,7 @@ If you wish, disable JavaScript in your browser, reload the page, and notice the
 
 We have progressively enhanced the PIN field: its Copy button's baseline state is hidden, becoming visible only when our JavaScript detects support for the clipboard API.
 
-## Stimulus Controllers are Reusable
+## Stimulus 컨트롤러는 재활용하기
 
 So far we've seen what happens when there's one instance of a controller on the page at a time.
 
@@ -180,7 +180,7 @@ Let's go ahead and add another PIN to the page. Copy and paste the `<div>` so th
 
 Reload the page and confirm that both buttons work.
 
-## Actions and Targets Can Go on Any Kind of Element
+## 액션과 타겟은 어떤 종류의 엘리먼트라도 사용가능합니다.
 
 Now let's add one more PIN field. This time we'll use a Copy _link_ instead of a button:
 
@@ -209,7 +209,7 @@ Similarly, our `source` target need not be an `<input type="text">`. The control
   PIN: <textarea data-target="clipboard.source" readonly>3737</textarea>
 ```
 
-## Wrap-Up and Next Steps
+## 다음은,
 
 In this chapter we looked at a real-life example of wrapping a browser API in a Stimulus controller. We gently modified our controller to be resilient against older browsers and degraded network conditions. We saw how multiple instances of the controller can appear on the page at once. Finally, we explored how actions and targets keep your HTML and JavaScript loosely coupled.
 

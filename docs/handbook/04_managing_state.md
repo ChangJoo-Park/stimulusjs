@@ -2,13 +2,13 @@
 permalink: /handbook/managing-state
 ---
 
-# Managing State
+# 상태관리
 
 Most contemporary frameworks encourage you to keep state in JavaScript at all times. They treat the DOM as a write-only rendering target, reconciled by client-side templates consuming JSON from the server.
 
 Stimulus takes a different approach. A Stimulus application's state lives as attributes in the DOM; controllers themselves are largely stateless. This approach makes it possible to work with HTML from anywhere—the initial document, an Ajax request, a Turbolinks visit, or even another JavaScript library—and have associated controllers spring to life automatically without any explicit initialization step.
 
-## Building a Slideshow
+## 슬라이드쇼 만들기
 
 In the last chapter, we learned how a Stimulus controller can maintain simple state in the document by adding a class name to an element. But what do we do when we need to store a value, not just a simple flag?
 
@@ -90,7 +90,7 @@ We initialize the controller by showing the first slide, and the `next()` and `p
 
 Reload the page and confirm that the Next button advances to the next slide.
 
-## Reading Initial State from the DOM
+## DOM에서 초기 상태 읽기
 
 Notice how our controller tracks its state—the currently selected slide—in the `this.index` property.
 
@@ -133,7 +133,7 @@ Working with `data` attributes on controller elements is common enough that Stim
 
 Add the `data-slideshow-index` attribute to your controller's element, then reload the page to confirm the slideshow starts on the specified slide.
 
-## Persisting State in the DOM
+## DOM의 지속 상태
 
 We've seen how to bootstrap our slideshow controller's initial slide index by reading it from a `data` attribute.
 
@@ -181,7 +181,7 @@ Here we've renamed `showSlide()` to `showCurrentSlide()` and changed it to read 
 
 Now our controller's state lives entirely in the DOM.
 
-## Wrap-Up and Next Steps
+## 다음은,
 
 In this chapter we've seen how to use the Stimulus Data API to load and persist the current index of a slideshow controller.
 

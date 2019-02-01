@@ -2,13 +2,13 @@
 permalink: /handbook/working-with-external-resources
 ---
 
-# Working With External Resources
+# 외부 리소스 이용하기
 
 In the last chapter we learned how to load and persist a controller's internal state using the Data API.
 
 Sometimes our controllers need to track the state of external resources, where by _external_ we mean anything that isn't in the DOM or a part of Stimulus. For example, we may need to issue an HTTP request and respond as the request's state changes. Or we may want to start a timer and then stop it when the controller is no longer connected. In this chapter we'll see how to do both of those things.
 
-## Asynchronously Loading HTML
+## 비동기로 HTML 불러오기
 
 Let's learn how to populate parts of a page asynchronously by loading and inserting remote fragments of HTML. We use this technique in Basecamp to keep our initial page loads fast, and to keep our views free of user-specific content so they can be cached more effectively.
 
@@ -57,7 +57,7 @@ When the controller connects, we kick off a [Fetch](https://developer.mozilla.or
 
 Open the network tab in your browser's developer console and reload the page. You'll see an initial full page request to `index.html`, followed by our controller's subsequent request to `messages.html`.
 
-## Refreshing Automatically With a Timer
+## 타이머를 이용한 자동 새로고침
 
 Let's improve our controller by changing it to periodically refresh the inbox so it's always up-to-date.
 
@@ -90,7 +90,7 @@ Now we can update the controller to check for the interval and, if present, star
 
 Reload the page and observe a new request once every five seconds in the developer console. Then make a change to `public/messages.html` and wait for it to appear in the inbox.
 
-## Releasing Tracked Resources
+## 추적하던 자원 해제하기
 
 We start our timer when the controller connects, but we never stop it. That means if our controller's element were to disappear, the controller would continue to issue HTTP requests in the background.
 
@@ -158,7 +158,7 @@ export default class extends Controller {
 }
 ```
 
-## Wrap-Up and Next Steps
+## 다음은,
 
 In this chapter we've seen how to acquire and release external resources using Stimulus lifecycle callbacks.
 

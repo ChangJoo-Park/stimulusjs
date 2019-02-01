@@ -2,11 +2,11 @@
 permalink: /handbook/hello-stimulus
 ---
 
-# Hello, Stimulus
+# 안녕하세요, Stimulus
 
 The best way to learn how Stimulus works is to build a simple controller. This chapter will show you how.
 
-## Prerequisites
+## 사전 준비
 
 To follow along, you'll need a running copy of the [`stimulus-starter`](https://github.com/stimulusjs/stimulus-starter) project, which is a preconfigured blank slate for exploring Stimulus.
 
@@ -27,7 +27,7 @@ Then visit http://localhost:9000/ in your browser.
 
 (Note that the `stimulus-starter` project uses the [Yarn package manager](https://yarnpkg.com/) for dependency management, so make sure you have that installed first.)
 
-## It All Starts With HTML
+## 모든 시작은 HTML로부터
 
 Let's begin with a simple exercise: a text field with a button. When you click the button, we'll display the value of the text field in the console.
 
@@ -42,7 +42,7 @@ Every Stimulus project starts with HTML, and this project is no exception. Open 
 
 Reload the page in your browser and you should see the text field and button.
 
-## Controllers Bring HTML to Life
+## 컨트롤러는 HTML에 생명을 불어넣습니다.
 
 At its core, Stimulus' purpose is to automatically connect DOM elements to JavaScript objects. Those objects are called _controllers_.
 
@@ -56,7 +56,7 @@ export default class extends Controller {
 }
 ```
 
-## Identifiers Link Controllers With the DOM
+## 식별자는 DOM과 컨트롤러를 연결합니다.
 
 Next, we need to tell Stimulus how this controller should be connected to our HTML. We do this by placing an _identifier_ in the `data-controller` attribute on our `<div>`:
 
@@ -69,7 +69,7 @@ Next, we need to tell Stimulus how this controller should be connected to our HT
 
 Identifiers serve as the link between elements and controllers. In this case, the identifier `hello` tells Stimulus to create an instance of the controller class in `hello_controller.js`. You can learn more about how automatic controller loading works in the [Installation Guide]({% link docs/handbook/06_installing_stimulus.md %}).
 
-## Is This Thing On?
+## 뭐가 일어난거죠?
 
 Reload the page in your browser and you'll see that nothing has changed. How do we know whether our controller is working or not?
 
@@ -89,7 +89,7 @@ export default class extends Controller {
 
 Reload the page again and open the developer console. You should see `Hello, Stimulus!` followed by a representation of our `<div>`.
 
-## Actions Respond to DOM Events
+## 액션은 DOM 이벤트에 반응합니다.
 
 Now let's see how to change the code so our log message appears when we click the "Greet" button instead.
 
@@ -168,7 +168,7 @@ export default class extends Controller {
 
 Then reload the page in your browser and open the developer console. Enter your name in the input field and click the "Greet" button. Hello, world!
 
-## Controllers Simplify Refactoring
+## 간단히 컨트롤러 리팩토링하기
 
 We've seen that Stimulus controllers are instances of JavaScript classes whose methods can act as event handlers.
 
@@ -191,7 +191,7 @@ export default class extends Controller {
 }
 ```
 
-## Wrap-Up and Next Steps
+## 다음은,
 
 Congratulations—you've just written your first Stimulus controller!
 
