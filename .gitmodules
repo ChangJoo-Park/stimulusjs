@@ -1,0 +1,3 @@
+[submodule "stimulusjs"]
+	path = stimulusjs
+	url = git://github.com/stimulusjs/stimulus.git
