@@ -126,7 +126,7 @@ To connect our action method to the button's `click` event, open `public/index.h
 
 Load the page in your browser and open the developer console. You should see the log message appear when you click the "Greet" button.
 
-## Targets Map Important Elements To Controller Properties
+## 타겟 엘리먼트를 컨트롤러 속성에 매핑하기
 
 We'll finish the exercise by changing our action to say hello to whatever name we've typed in the text field.
 
