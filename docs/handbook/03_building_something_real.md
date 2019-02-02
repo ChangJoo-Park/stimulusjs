@@ -4,23 +4,29 @@ permalink: /handbook/building-something-real
 
 # 실제 작동하는 무언가를 만들어봅시다.
 
-We've implemented our first controller and learned how Stimulus connects HTML to JavaScript. Now let's take a look at something we can use in a real application by recreating a controller from Basecamp.
+<!-- We've implemented our first controller and learned how Stimulus connects HTML to JavaScript. Now let's take a look at something we can use in a real application by recreating a controller from Basecamp. -->
+첫번째 컨트롤러에서 Stimulus가 HTML과 JavaScript를 연결하도록 만들었습니다. 이제, Basecamp에서 가져온 컨트롤러를 이용해 실제 앱에서 사용하는 무언가를 만들어보겠습니다.
 
 ## DOM 클립보드 API 감싸기
 
-Scattered throughout Basecamp's UI are buttons like these:
+<!-- Scattered throughout Basecamp's UI are buttons like these: -->
+Basecamp의 UI에는 아래와 같은 버튼이 있습니다.
 
 <img src="../../assets/bc3-clipboard-ui.png" width="500" height="122" class="docs__screenshot">
 
-When you click one of these buttons, Basecamp copies a bit of text, such as a URL or an email address, to your clipboard.
+<!-- When you click one of these buttons, Basecamp copies a bit of text, such as a URL or an email address, to your clipboard. -->
+이 버튼을 누르면, Basecamp는 URL이나 이메일 주소 등의 텍스트를 클립보트에 복사합니다.
 
-The web platform has [an API for accessing the system clipboard](https://www.w3.org/TR/clipboard-apis/), but there's no HTML element that does what we need. To implement the Copy button, we must use JavaScript.
+<!-- The web platform has [an API for accessing the system clipboard](https://www.w3.org/TR/clipboard-apis/), but there's no HTML element that does what we need. To implement the Copy button, we must use JavaScript. -->
+웹 플랫폼은 [an API for accessing the system clipboard](https://www.w3.org/TR/clipboard-apis/)를 가지고 있습니다. 하지만 HTML 엘리먼트가 필요하지는 않습니다. Copy 버튼을 구현하려면 JavaScript를 이용해야합니다.
 
 ## 복사 버튼 만들기
 
-Let's say we have an app which allows us to grant someone else access by generating a PIN for them. It would be convenient if we could display that generated PIN alongside a button to copy it to the clipboard for easy sharing.
+<!-- Let's say we have an app which allows us to grant someone else access by generating a PIN for them. It would be convenient if we could display that generated PIN alongside a button to copy it to the clipboard for easy sharing. -->
+PIN을 이용해 다른 사람에게 접근 권한을 주는 앱이 있다고 할 때, 만들어진 PIN과 함께 버튼을 두어 클립보드에 편하게 복사할 수 있도록 합니다.
 
-Open `public/index.html` and replace the contents of `<body>` with a rough sketch of the button:
+<!-- Open `public/index.html` and replace the contents of `<body>` with a rough sketch of the button: -->
+`public/index.html`을 열어 `<body>` 아래에 다음의 내용을 입력하세요.
 
 ```html
 <div>
