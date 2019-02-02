@@ -37,7 +37,8 @@ PIN을 이용해 다른 사람에게 접근 권한을 주는 앱이 있다고 �
 
 ## 컨트롤러 만들기
 
-Next, create `src/controllers/clipboard_controller.js` and add an empty method `copy()`:
+<!-- Next, create `src/controllers/clipboard_controller.js` and add an empty method `copy()`: -->
+`src/controllers/clipboard_controller.js` 에 `copy()` 메소드를 만듭니다.
 
 ```js
 // src/controllers/clipboard_controller.js
@@ -49,7 +50,8 @@ export default class extends Controller {
 }
 ```
 
-Then add `data-controller="clipboard"` to the outer `<div>`. Any time this attribute appears on an element, Stimulus will connect an instance of our controller:
+<!-- Then add `data-controller="clipboard"` to the outer `<div>`. Any time this attribute appears on an element, Stimulus will connect an instance of our controller: -->
+그다음 `data-controller="clipboard"` 을 외부의 `<div>`에 추가합니다. 언제든지 엘리먼트에 이 속성이 나타나면 Stimulus는 컨트롤러 인스턴스와 연결합니다.
 
 ```html
 <div data-controller="clipboard">
@@ -57,13 +59,15 @@ Then add `data-controller="clipboard"` to the outer `<div>`. Any time this attri
 
 ## 타겟을 정하는 방법
 
-We'll need a reference to the text field so we can select its contents before invoking the clipboard API. Add `data-target="clipboard.source"` to the text field:
+<!-- We'll need a reference to the text field so we can select its contents before invoking the clipboard API. Add `data-target="clipboard.source"` to the text field: -->
+텍스트필드에대한 참조가 필요하므로 클립보드 API가 호출되기 전에 내용을 가져와야합니다. `data-target="clipboard.source"`를 텍스트필드에 추가합니다.
 
 ```html
   PIN: <input data-target="clipboard.source" type="text" value="1234" readonly>
 ```
 
-Now add a target definition to the controller so we can access the text field element as `this.sourceTarget`:
+<!-- Now add a target definition to the controller so we can access the text field element as `this.sourceTarget`: -->
+이제 컨트롤러의 타겟에 텍스트 필드의 엘리먼트를 추가합니다.
 
 ```js
 export default class extends Controller {
@@ -81,6 +85,15 @@ export default class extends Controller {
 > * `this.sourceTargets` evaluates to an array of all `source` targets in the controller's scope.
 > * `this.hasSourceTarget` evaluates to `true` if there is a `source` target or `false` if not.
 
+
+> ###  `static targets` 은 무엇인가요?
+>
+> When Stimulus loads your controller class, it looks for target name strings in a static array called `targets`. For each target name in the array, Stimulus adds three new properties to your controller. Here, our `"source"` target name becomes the following properties:
+> Stimulus가 컨트롤러 클래스를 불러올 때, static `targets` 배열에서 타겟이 되는 이름을 찾고 Stimulus는 컨트롤러에 세가지 추가 속성을 추가합니다. 여기서 `"source"` 타겟의 새로운 속성은 다음과 같습니다.
+>
+> * `this.sourceTarget` evaluates to the first `source` target in your controller's scope. If there is no `source` target, accessing the property throws an error.
+> * `this.sourceTargets` evaluates to an array of all `source` targets in the controller's scope.
+> * `this.hasSourceTarget` evaluates to `true` if there is a `source` target or `false` if not.
 
 ## 액션과 연결하기
 
