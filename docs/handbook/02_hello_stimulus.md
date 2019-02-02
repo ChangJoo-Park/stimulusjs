@@ -128,9 +128,13 @@ export default class extends Controller {
 
 ## 액션은 DOM 이벤트에 반응합니다.
 
-Now let's see how to change the code so our log message appears when we click the "Greet" button instead.
+<!-- Now let's see how to change the code so our log message appears when we click the "Greet" button instead. -->
 
-Start by renaming `connect()` to `greet()`:
+이제 "Greet" 버튼을 누르면 로그를 출력하도록 바꾸어봅니다.
+
+<!-- Start by renaming `connect()` to `greet()`: -->
+
+`connect()`를 `greet()`로 변경합니다.
 
 ```js
 // src/controllers/hello_controller.js
@@ -143,9 +147,13 @@ export default class extends Controller {
 }
 ```
 
-We want to call the `greet()` method when the button's `click` event is triggered. In Stimulus, controller methods which handle events are called _action methods_.
+<!-- We want to call the `greet()` method when the button's `click` event is triggered. In Stimulus, controller methods which handle events are called _action methods_. -->
 
-To connect our action method to the button's `click` event, open `public/index.html` and add a magic `data-action` attribute to the button:
+버튼의 `click` 이벤트가 호출되면 `greet()` 메소드를 실행되어야합니다. Stimulus에서는 이벤트를 처리하는 컨트롤러 메소드를 _액션 메소드_ 라고 부릅니다.
+
+<!-- To connect our action method to the button's `click` event, open `public/index.html` and add a magic `data-action` attribute to the button: -->
+
+액션 메소드를 버튼 `click` 이벤트와 연결하려면 `public/index.html` 을 열어 마법의 `data-action` 속성을 버튼에 추가하세요.
 
 ```html
 <div data-controller="hello">
@@ -154,22 +162,27 @@ To connect our action method to the button's `click` event, open `public/index.h
 </div>
 ```
 
-> ### Action Descriptors Explained
+> ### 액션 디스크립터에 대하여
 >
-> The `data-action` value `click->hello#greet` is called an _action descriptor_. This particular descriptor says:
-> * `click` is the event name
-> * `hello` is the controller identifier
-> * `greet` is the name of the method to invoke
+> `data-action` 속성의 값인 `click->hello#greet` 는 _액션 디스크립터_ 라고 부릅니다.  디스크립터의 각 부분은 이렇게 부릅니다.
+> * `click` 은 이벤트 이름입니다.
+> * `hello` 은 컨트롤러 식별자입니다.
+> * `greet` 는 실행될 메소드 이름입니다.
 
-Load the page in your browser and open the developer console. You should see the log message appear when you click the "Greet" button.
+<!-- Load the page in your browser and open the developer console. You should see the log message appear when you click the "Greet" button. -->
+
+브라우저를 새로고침하고 개발자 도구를 열어놓고, "Greet" 버튼을 클릭하면 로그를 보실 수 있습니다.
 
 ## 타겟 엘리먼트를 컨트롤러 속성에 매핑하기
 
-We'll finish the exercise by changing our action to say hello to whatever name we've typed in the text field.
+<!-- We'll finish the exercise by changing our action to say hello to whatever name we've typed in the text field. -->
+텍스트 필드에 입력한 이름에 대한 인사를 하는 액션을 만들고, 이 장을 마치겠습니다.
 
-In order to do that, first we need a reference to the input element inside our controller. Then we can read the `value` property to get its contents.
+<!-- In order to do that, first we need a reference to the input element inside our controller. Then we can read the `value` property to get its contents. -->
+이를 위해, 첫째로 폼 인풋 엘리먼트가 컨트롤러를 참조합니다. 그리고 `value` 속성을 이용해 값을 가져옵니다.
 
-Stimulus lets us mark important elements as _targets_ so we can easily reference them in the controller through corresponding properties. Open `public/index.html` and add a magic `data-target` attribute to the input element:
+<!-- Stimulus lets us mark important elements as _targets_ so we can easily reference them in the controller through corresponding properties. Open `public/index.html` and add a magic `data-target` attribute to the input element: -->
+Stimulus는 중요한 엘리먼트를 _targets_ 로 표시하므로 컨트롤러에서 해당 속성을 통해 쉽게 참조할 수 있습니다. `public/index.html`을 열어 마법의 `data-target` 속성을 인풋 엘리먼트에 추가합니다.
 
 ```html
 <div data-controller="hello">
@@ -178,15 +191,17 @@ Stimulus lets us mark important elements as _targets_ so we can easily reference
 </div>
 ```
 
-> ### Target Descriptors Explained
+> ### 타겟 디스크립터 설명
 >
-> The `data-target` value `hello.name` is called a _target descriptor_. This particular descriptor says:
-> * `hello` is the controller identifier
-> * `name` is the target name
+> `data-target` 속성 값인 `hello.name` 를 _타겟 디스크립터_ 라고 합니다. 디스크립터의 각 부분은 이렇게 부릅니다.
+> * `hello` 컨트롤러 식별자입니다.
+> * `name` 타겟 이름입니다.
 
-When we add `name` to our controller's list of target definitions, Stimulus automatically creates a `this.nameTarget` property which returns the first matching target element. We can use this property to read the element's `value` and build our greeting string.
+<!-- When we add `name` to our controller's list of target definitions, Stimulus automatically creates a `this.nameTarget` property which returns the first matching target element. We can use this property to read the element's `value` and build our greeting string. -->
+`name` 을 컨트롤러의 타겟 목록에 추가하고, Stimulus는 자동으로 처음 만나는 엘리먼트에 연결한 `this.nameTarget` 속성을 만듭니다.  이 속성으로 엘리먼트의 `value` 를 이용해 greeting 문자열을 만들 수 있습니다.
 
-Let's try it out. Open `hello_controller.js` and update it like so:
+<!-- Let's try it out. Open `hello_controller.js` and update it like so: -->
+한번 해봅시다. `hello_controller.js` 를 열어 아래의 내용으로 바꿉니다.
 
 ```js
 // src/controllers/hello_controller.js
@@ -203,13 +218,17 @@ export default class extends Controller {
 }
 ```
 
-Then reload the page in your browser and open the developer console. Enter your name in the input field and click the "Greet" button. Hello, world!
+<!-- Then reload the page in your browser and open the developer console. Enter your name in the input field and click the "Greet" button. Hello, world! -->
+
+브라우저에서 새로고침 한 다음 개발자 도구를 열어주세요. 인풋 필드에 이름을 입력하고 "Greet" 버튼을 누르세요. Hello World!
 
 ## 간단히 컨트롤러 리팩토링하기
 
-We've seen that Stimulus controllers are instances of JavaScript classes whose methods can act as event handlers.
+<!-- We've seen that Stimulus controllers are instances of JavaScript classes whose methods can act as event handlers. -->
+Stimulus 컨트롤러는 메소드가 이벤트 핸들러 역할을 할 수있는 JavaScript 클래스의 인스턴스입니다.
 
-That means we have an arsenal of standard refactoring techniques at our disposal. For example, we can clean up our `greet()` method by extracting a `name` getter:
+<!-- That means we have an arsenal of standard refactoring techniques at our disposal. For example, we can clean up our `greet()` method by extracting a `name` getter: -->
+이 말은 표준적인 리팩토링 테크닉을 사용할 수 있다는 것과 같습니다. 예를 들어 `greet()` 메소드는 `name` getter로 추출할 수 있습니다.
 
 ```js
 // src/controllers/hello_controller.js
@@ -230,6 +249,10 @@ export default class extends Controller {
 
 ## 다음은,
 
-Congratulations—you've just written your first Stimulus controller!
+<!-- Congratulations—you've just written your first Stimulus controller! -->
 
-We've covered the framework's core concepts: controllers, identifiers, actions, and targets. In the next chapter, we'll see how to put those together to build a real-life controller taken right from Basecamp.
+축하합니다! 첫번째 Stimulus 컨트롤러를 만들었습니다.
+
+<!-- We've covered the framework's core concepts: controllers, identifiers, actions, and targets. In the next chapter, we'll see how to put those together to build a real-life controller taken right from Basecamp. -->
+
+이 장은 프레임워크의 핵심 컨셉인 컨트롤러, 식별자, 액션, 타겟을 알아보았습니다. 다음 장에서는 실제 Basecamp에서 가져온 컨트롤러를 만드는 방법을 알아보겠습니다.
