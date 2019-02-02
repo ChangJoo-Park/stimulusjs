@@ -35,7 +35,7 @@ $ yarn start
 
 <!-- Then visit http://localhost:9000/ in your browser. -->
 
-이제 브라우저에서 http://localhost:9000/ 를 접속해보세요.
+이제 브라우저에서 http://localhost:9000/ 으로 접속해보세요.
 
 <!-- (Note that the `stimulus-starter` project uses the [Yarn package manager](https://yarnpkg.com/) for dependency management, so make sure you have that installed first.) -->
 
@@ -43,9 +43,13 @@ $ yarn start
 
 ## 모든 시작은 HTML로부터
 
-Let's begin with a simple exercise: a text field with a button. When you click the button, we'll display the value of the text field in the console.
+<!-- Let's begin with a simple exercise: a text field with a button. When you click the button, we'll display the value of the text field in the console. -->
 
-Every Stimulus project starts with HTML, and this project is no exception. Open `public/index.html` and add the following markup just after the opening `<body>` tag:
+버튼을 가진 텍스트 필드처럼 쉬운 것부터 시작해봅시다. 버튼을 누르면 텍스트필드에 있는 내용을 콘솔에 출력합니다.
+
+<!-- Every Stimulus project starts with HTML, and this project is no exception. Open `public/index.html` and add the following markup just after the opening `<body>` tag: -->
+
+모든 Stimulus 프로젝트는 HTML에서 시작합니다. 그리고 이 프로젝트는 역시나 예외가 아닙니다. `public/index.html` 을 열고 아래의 마크업을 `<body>` 아래에 적으세요.
 
 ```html
 <div>
@@ -54,13 +58,19 @@ Every Stimulus project starts with HTML, and this project is no exception. Open 
 </div>
 ```
 
-Reload the page in your browser and you should see the text field and button.
+<!-- Reload the page in your browser and you should see the text field and button. -->
+
+브라우저에서 페이지를 새로고침하면 텍스트필드와 버튼이 있을겁니다.
 
 ## 컨트롤러는 HTML에 생명을 불어넣습니다.
 
-At its core, Stimulus' purpose is to automatically connect DOM elements to JavaScript objects. Those objects are called _controllers_.
+<!-- At its core, Stimulus' purpose is to automatically connect DOM elements to JavaScript objects. Those objects are called _controllers_. -->
 
-Let's create our first controller by extending the framework's built-in `Controller` class. Create a new file named `hello_controller.js` in the `src/controllers/` folder. Then place the following code inside:
+Stimulus의 핵심 목적은 DOM 엘리먼트를 JavaScript 객체에 자동으로 연결하는 것입니다. 연결된 객체는 _컨트롤러_ 라고 합니다.
+
+<!-- Let's create our first controller by extending the framework's built-in `Controller` class. Create a new file named `hello_controller.js` in the `src/controllers/` folder. Then place the following code inside: -->
+
+프레임워크에 내장된 `Controller` 를 확장해 첫 컨트롤러 클래스를 만들어봅니다. 새 컨트롤러 파일은 `src/controllers` 폴더에 위치하고, 이름은 `hello_controller.js` 입니다. 전체 코드는 아래와 같습니다.
 
 ```js
 // src/controllers/hello_controller.js
@@ -72,7 +82,9 @@ export default class extends Controller {
 
 ## 식별자는 DOM과 컨트롤러를 연결합니다.
 
-Next, we need to tell Stimulus how this controller should be connected to our HTML. We do this by placing an _identifier_ in the `data-controller` attribute on our `<div>`:
+<!-- Next, we need to tell Stimulus how this controller should be connected to our HTML. We do this by placing an _identifier_ in the `data-controller` attribute on our `<div>`: -->
+
+다음으로, Stimulus 가 어떻게 컨트롤러와 HTML에 연결되는지 알아봅니다. `<div>` 태그에 `data-controller` 속성을 추가한 다음 _식별자_ 를 지정합니다.
 
 ```html
 <div data-controller="hello">
@@ -81,15 +93,24 @@ Next, we need to tell Stimulus how this controller should be connected to our HT
 </div>
 ```
 
-Identifiers serve as the link between elements and controllers. In this case, the identifier `hello` tells Stimulus to create an instance of the controller class in `hello_controller.js`. You can learn more about how automatic controller loading works in the [Installation Guide]({% link docs/handbook/06_installing_stimulus.md %}).
+<!-- Identifiers serve as the link between elements and controllers. In this case, the identifier `hello` tells Stimulus to create an instance of the controller class in `hello_controller.js`. You can learn more about how automatic controller loading works in the [Installation Guide]({% link docs/handbook/06_installing_stimulus.md %}). -->
+
+식별자는 엘리먼트와 컨트롤러의 연결고리입니다. 위 경우, 식별자 `hello` 는 Stimulus 에게 `hello_controller.js`에 있는 컨트롤러 클래스의 인스턴스를 만들 수 있도록 알려줍니다. 어떻게 컨트롤러가 자동으로 불러오는지는 [설치 가이드]({% link docs/handbook/06_installing_stimulus.md %})에서 다룹니다.
 
 ## 뭐가 일어난거죠?
 
-Reload the page in your browser and you'll see that nothing has changed. How do we know whether our controller is working or not?
+<!-- Reload the page in your browser and you'll see that nothing has changed. How do we know whether our controller is working or not? -->
 
-One way is to put a log statement in the `connect()` method, which Stimulus calls each time a controller is connected to the document.
+브라우저를 새로고침하면 아무것도 바뀐게 없습니다. 컨트롤러가 작동하는 것인지 아닌지 어떻게 알 수 있을까요?
 
-Implement the `connect()` method in `hello_controller.js` as follows:
+<!-- One way is to put a log statement in the `connect()` method, which Stimulus calls each time a controller is connected to the document. -->
+
+한가지 방법은 `connect()` 메소드에 로그를 심는 것 입니다. Stimulus는 컨트롤러가 각각의 엘리먼트에 연결될 때 호출합니다.
+
+<!-- Implement the `connect()` method in `hello_controller.js` as follows: -->
+
+`hello_controller.js`안에 `connect()` 메소드를 구현합니다.
+
 ```js
 // src/controllers/hello_controller.js
 import { Controller } from "stimulus"
@@ -101,7 +122,9 @@ export default class extends Controller {
 }
 ```
 
-Reload the page again and open the developer console. You should see `Hello, Stimulus!` followed by a representation of our `<div>`.
+<!-- Reload the page again and open the developer console. You should see `Hello, Stimulus!` followed by a representation of our `<div>`. -->
+
+페이지를 새로고침하고 개발자 도구를 열어보세요. `Hello, Stimulus!`를 볼 수 있습니다. 우리가 만든 `<div>` 가 화면에 그려진 이후의 상황입니다.
 
 ## 액션은 DOM 이벤트에 반응합니다.
 
