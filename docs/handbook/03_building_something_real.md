@@ -105,7 +105,7 @@ export default class extends Controller {
   <button data-action="clipboard#copy">Copy to Clipboard</button>
 ```
 
-> ### Common Events Have a Shorthand Action Notation
+<!-- > ### Common Events Have a Shorthand Action Notation
 >
 > You might have noticed we've omitted `click->` from the action descriptor. That's because Stimulus defines `click` as the default event for actions on `<button>` elements.
 >
@@ -120,7 +120,7 @@ export default class extends Controller {
 > input type=submit | click
 > select            | change
 > textarea          | change
-
+ -->
 > ### 일반적인 이벤트에는 약어가 있습니다.
 >
 > 액션 디스크립터에서 `click->`를 생략한 것을 알고 있을 것 입니다. Stimulus는 `<button>` 엘리먼트의 기본 동작을 `click` 으로 판단합니다.
